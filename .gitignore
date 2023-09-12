@@ -1,5 +1,18 @@
+# by JLC
+*.zip
 models/
 Notebooks/models/
+*.aux 
+*.toc 
+*.log 
+*.nav 
+*.out 
+*.snm 
+*~ 
+*.vrb
+_minted-Install_PVE/
+# by JLC
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
