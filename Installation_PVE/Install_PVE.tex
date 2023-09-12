@@ -1,0 +1,442 @@
+\documentclass[10pt,serif,mathserif,compress,hyperref={colorlinks}]{beamer}
+\mode<presentation>
+\usepackage{times} % pour avoir une belle police avec beamer
+\usepackage{pgf}
+\usepackage{pgfpages}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{lmodern}
+\usepackage{lastpage}
+\usepackage{comment}
+\usepackage{geometry}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{beamerthemesplit}
+\usepackage{amsmath, amsfonts, epsfig, xspace}
+\usepackage{pstricks,pst-node}
+\usepackage{multimedia}
+\usepackage{pifont}   % zapf dingbats
+\usepackage{marvosym} % MarVoSym dingbats
+\usepackage{wasysym}
+
+\usepackage{graphicx}% for including figures
+\usepackage{tikz}
+\usepackage[tikz]{bclogo}
+\usetikzlibrary{positioning,decorations.pathreplacing,arrows}
+\usepackage{tikzsymbols}
+\setlength{\parindent}{0pt}
+
+\usepackage{minted}
+
+\input{colors}
+\input{commands}
+
+\usetheme{jlcKeynote}
+\useoutertheme[subsection=false]{miniframes}
+\setbeamercolor{background canvas}{bg=gray!50!white}
+\setbeamercolor{structure}{bg=white, fg=gray}
+\setbeamertemplate{itemize item}{\small\gray{$\CIRCLE$}}
+\setbeamertemplate{itemize subitem}{\tiny\gray{$\CIRCLE$}}
+\settowidth{\leftmargini}{\usebeamertemplate{itemize item}}
+\addtolength{\leftmargini}{\labelsep}
+
+\hypersetup{linkcolor=Yellow}
+\hypersetup{citecolor=DeepPink4}
+\hypersetup{urlcolor=DarkBlue}
+\hypersetup{anchorcolor=Magenta}
+
+\title[\hspace*{.75\linewidth}\insertframenumber/\inserttotalframenumber]
+      {\fontsize{17}{17}\selectfont{\textbf{Machine learning with Python:\\Create, install \& use a \\Python Virtual Environment (PVE)}}\\[6mm]
+      \fontsize{12}{12}\selectfont{\textbf{DuMAS department day -- 2023/09/22}}
+}
+      
+\subtitle{}
+      
+\author[{\tiny{JLC -- Sept23 -- v1.1 }}
+
+\hspace*{.75\linewidth}]
+%{\includegraphics[height=2.5cm]{images/logo-am-couleur-72dpi_alpha.jpg}\\[5mm]
+{\fontsize{9}{9}\selectfont{\hspace*{-5mm}Jean-Luc.Charles@mailo.com}}
+
+\institute{}
+
+\date{}
+
+\titlegraphic{\vspace*{-1.6cm}\includegraphics[height=3.cm]{images/robot.png}\\
+  \href{https://creativecommons.org/licenses/by-sa/4.0/}
+       {\includegraphics[height=5mm]{images/CC-BY-SA.jpeg}}     
+}
+
+\logo{}
+
+\tcbset{enhanced, boxrule=0.2pt, sharp corners, drop lifted shadow,
+    width=1.0\textwidth, left=5pt, left skip=-20pt,
+    colback=Chocolate!25!white,colframe=Chocolate!75!black}
+
+\renewcommand\ttdefault{lmtt}
+
+\begin{comment}
+v1.2 -- JLC :
+>>> Modification des tcolorbox pour les avoir :
+- plus larges (width=...)
+- mieux centrées dans la page  (left skip=...)
+- avec moins de marge à gauche (left=...)
+\end{comment}
+
+\begin{document}
+
+\frame[plain]{\titlepage}
+
+\setbeamercolor{structure}{fg=gray!50!white}
+
+%===============================================================================
+\begin{frame}
+  
+  \begin {bclogo}[noborder=true, couleur=gray!50, couleurBarre=Chocolate, logo=\bctrombone, marge=0, margeG=-0.5]
+      {\ Programming {\em Machine Learning} (ML) in Python3}
+      \medskip
+      \begin{itemize}
+      \item \bfdarkchoco{miniconda3} allows you to install a {\bf dedicated} \bfdarkchoco{Python Virtual Environment} (PVE) on your laptop
+        GNU/Linux, macOS or Windows.\medskip
+      \item IDE\footnote{Integrated Development Environment} interesting for ML in Python:
+        \begin{itemize}
+        \item \bfdarkchoco{jupyter notebook}: for creating Python {\em notebooks} $\leadsto$ files \fileBF{*.ipynb}\\ for ML, data processing, reports... 
+          Used in most tutorials on the internet.\medskip
+        \item \bfdarkchoco{idlex}: the simplest IDE for creating/running \fileBF{*.py} files\\
+          (a "Python interpreter" window and a "program editor" window)\medskip
+        \item \bfdarkchoco{VSCode}, {\em a.k.a Visual Studio code} from Microsoft: multi-language, very powerful, requires some work (time) to get started,
+          especially to make it work with PVE...\medskip
+        \item \bfdarkchoco{pycharme}, \bfdarkchoco{pyzo, }\bfdarkchoco{spyder} and many others \href{https://wiki.python.org/moin/IntegratedDevelopmentEnvironments}{here} \ldots
+        \end{itemize}
+      \end{itemize}
+      \medskip
+  \end{bclogo}
+  
+\end{frame}
+%===============================================================================
+
+\section{Miniconda3}
+
+%===============================================================================
+\begin{frame}{The Python installer : {\bf Miniconda3}}
+  
+  \begin{tcolorbox}[title=Installation of Miniconda3]
+
+    \begin{itemize}
+      
+    \item Download the latest version of \fileBF{Miniconda3} for your OS at \href{https://docs.conda.io/en/latest/miniconda.html}{\DarkBlue{docs.conda.io/en/latest/miniconda.html}}.\\
+      
+     \item Start the installation of \fileBF{Miniconda3}... \textbf{note the path for the installation folder \fileBF{miniconda3}} $\leadsto$ this will be used useful later\ldots\\[1mm]
+       \DarkGray{\footnotesize [Linux, in a terminal type: \\[-1.5mm]\hspace*{1.5cm}\code{bash ...some\_where.../miniconda3-latest-Linux-x86\_64.sh}]}
+    \end{itemize}
+    
+  \end{tcolorbox}
+
+  \vfill
+\hspace*{-20pt}\textbf{Warning} : the path of the installation folder \fileBF{miniconda3} must not contain any {\bf space} or any {\bf accented characters}!
+  
+  \begin{minipage}{.15\linewidth}
+    \hspace*{-20pt}\includegraphics[width=1.\linewidth]{images/dialog-warning-2.png} 
+  \end{minipage}%
+  \begin{minipage}{.85\linewidth}
+    
+    \medskip\fontsize{8}{8}\selectfont{
+    Windows :\\
+    \file{C:\bsh Miconda3} ou \file{C:\bsh Users\bsh Marie\bsh miniconda3} $\leadsto$ \DarkGreen{OK}\\[1mm]
+      \file{C:$\backslash$Yoann$\backslash$Mes\,install$\backslash$miniconda3} $\leadsto$ \DarkRed{not OK} (space)\\[1mm]
+      \file{C:$\backslash$Users$\backslash$Léon$\backslash$miniconda3} $\leadsto$ \DarkRed{not OK} (accentuated e)
+
+    \medskip      
+    MacOSX \& GNU/Linux :\\
+      \file{/home/moi/miconda3} ou \file{/Users/moi/opt/miniconda3} $\leadsto$ \DarkGreen{OK}\\[1mm]
+      \file{/home/moi/Mes\,install/miniconda3} $\leadsto$ \DarkRed{not OK} (space)\\[1mm]
+      \file{/Users/Léon/miniconda3} $\leadsto$ \DarkRed{not OK} (accentuated e)
+    }
+  \end{minipage}
+\end{frame}
+%===============================================================================
+
+\subsection{post_install}
+
+%===============================================================================
+\begin{frame}
+
+  \begin{tcolorbox}[title=\textbf{miniconda3} post-Installation]
+    
+    In the terminal, or the "Anaconda prompt" window:
+
+    \begin{itemize}
+    \item to disable the automatic activation of the \textbf{base} default PVE:\\
+      \codeBF{conda config --set auto\_activate\_base false}
+    \item to get information on the \fileBF{Miniconda3} installation:\\
+      \codeBF{conda info}
+    \end{itemize}
+  \end{tcolorbox}
+
+\end{frame}
+%===============================================================================
+
+\section{PVE creation \& activation}
+
+%===============================================================================
+\begin{frame}{How to create a PVE (Python Virtual Environment)}
+
+  \begin{tcolorbox}[title={\bf PVE creation}]
+    In a \textbf{NEW terminal} (macOS, Linux) or an "Anaconda prompt" window (Windows),
+    create the \DarkRed{\boldtt{dumas1}} PVE:\\
+    \hspace*{10pt}\codeBF{conda create -n dumas1 python=3.8 -y}\vspace*{-1mm}
+  \end{tcolorbox}
+  
+  \begin{tcolorbox}[title={\bf PVE activation}]
+    Once the \DarkRed{\boldtt{dumas1}} PVE is created, you must {\bf activate} it to use it:
+    
+    \begin{itemize}
+    \item in the terminal, or the "Anaconda prompt" window type:\\
+      \hspace*{10pt}\codeBF{conda activate dumas1}\medskip
+    \item the {\em prompt} is now prefixed with \DarkGreen{\boldtt{(dumas1)}}:\\[-1mm]
+      \begin{description}
+      \item{\file{Windows:\ \ \ \ }} \boldtt{\DG{(dumas1) C:\bsh Users\bsh me>}}
+      \item{\file{macOs:\ \ \ \ \ \ }} \boldtt{\DG{(dumas1) /Users/me>}}
+      \item{\file{GNU Linux:\ \ }} \boldtt{\DG{(dumas1) user@home \$ }}
+      \end{description}
+      \end{itemize}
+  \end{tcolorbox}
+  
+\end{frame}
+%===============================================================================
+
+\section{PVE populating}
+
+\subsection{3 ways}
+
+%===============================================================================
+\begin{frame}{Installation of Python modules}
+  
+  \begin {bclogo}[noborder=true, couleur=gray!50, couleurBarre=Chocolate, logo=\bctrombone, marge=0, margeG=-.8]
+    {Different methods to load modules into the \DarkRed{\boldtt{dumas1}} PVE}\medskip
+    
+     \begin{itemize}
+     \item With an ASCII-YAML file (\file{*.yml}) listing the modules to install and
+       the command \codeBF{conda env update -n dumas1 --file <file.yml>}:\\[1mm]
+       $\leadsto$ the most efficient for a PVE created with \codeBF{conda}\medskip
+      
+     \item With an ASCII file (\file{*.txt}) listing the modules to install and
+       the command \codeBF{pip install -r <file.txt>}:\\
+       $\leadsto$ the most used on internet tutorials... \\
+       $\leadsto$ but can lead to incompatibilities between \codeBF{conda} and \codeBF{pip}\medskip
+      
+     \item By hand with \codeBF{conda install ...} or \codeBF{pip install ...}:\\
+       $\leadsto$ the most painful!
+     \end{itemize}    
+  \end{bclogo}
+
+\end{frame}
+%===============================================================================
+
+
+%===============================================================================
+\begin{frame}[fragile]
+\frametitle{Installation of Python modules}
+
+\hspace*{-5mm}Examples of files to install some Python modules in the \DarkRed{\boldtt{dumas1}} PVE:\\[-5mm]
+  \hspace*{5mm}\begin{minipage}[t]{.35\linewidth}
+    \begin {bclogo}[noborder=true, couleur=gray!50, couleurBarre=Chocolate, logo=\bctrombone, marge=0, margeG=-.8]
+    {\small YAML format for \codeBF{conda}}
+    \begin{minted}[frame=single, fontsize=\footnotesize]{yaml}
+name: dumas1
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - tensorflow==2.8.*
+  - pandas
+  - matplotlib
+  - opencv
+  - jupyter
+  - notebook
+  - scikit-learn
+  - seaborn
+  - pip
+\end{minted}
+    \end{bclogo}
+  \end{minipage}
+\hspace*{25mm}\begin{minipage}[t]{.3\linewidth}
+    \begin {bclogo}[noborder=true, couleur=gray!50, couleurBarre=Chocolate, logo=\bctrombone, marge=0, margeG=-.8]
+    {\small TXT format for \codeBF{pip}}
+\begin{minted}[frame=single, fontsize=\footnotesize]{text}
+tensorflow==2.8.*
+pandas
+matplotlib
+opencv
+jupyter
+notebook
+scikit-learn
+seaborn
+\end{minted}
+    \end{bclogo}
+    \end{minipage}  
+
+\end{frame}
+%===============================================================================
+
+\subsection{with conda and a *.yml file}
+
+%===============================================================================
+\begin{frame}{Installation of Python modules}
+
+  \begin{tcolorbox}[title={\bf Preferred method}: YAML file + command \textbf{conda}]
+    
+    \begin{itemize}
+    \item The \codeBF{--file} option of the \codeBF{conda env update} command takes the name of an ASCII file
+      in YAML format containing the list of Python modules to install.
+     \item It is imperative to designate the PVE concerned with the option: \\\codeBF{-n <PVE\_name>}
+     \end{itemize}
+    
+\end{tcolorbox}
+
+  \begin {bclogo}[noborder=true, couleur=gray!50, couleurBarre=Chocolate, logo=\bctrombone, marge=0, margeG=-.8]
+    {Populate the \DarkRed{\boldtt{dumas1}} PVE using the file \file{dumas1.yml}}\smallskip
+    {\small In a terminal, or "Anaconda prompt" window:\\[-3mm]
+      \begin{itemize}
+      \item go to the folder holding the YAML file with the \codeBF{cd} command:\\
+       \codeBF{cd <path\_of\_the\_folder\_containing\_the\_file\_YAML>}
+      \item then install the Python modules in the \DarkRed{\boldtt{dumas1}} PVE:\\
+       \code{conda env update -n dumas1 --file dumas1.yml}
+      \end{itemize}
+    }
+  \end{bclogo}
+  
+  
+\end{frame}
+%===============================================================================
+
+\section{Launch Jupyter notebook}
+
+%===============================================================================
+\begin{frame}
+
+  \begin{tcolorbox}[title={\bf Windows}: launch {\bf jupyter notebook}]
+ 
+    \begin{itemize}
+    \item In an "Anaconda prompt" window, with the \DarkRed{\boldtt{dumas1}} PVE {\bf activated}, type:\\
+      \codeBF{jupyter notebook}
+    \item Access folders on a disk partition other than \file{C:\bsh} (e.g. \file{D:\bsh})\\
+      \codeBF{jupyter notebook D:\bsh}\\
+      \codeBF{jupyter notebook D:\textbackslash{folder1}\texttt{\char`\\}folder2}\\
+    \item Access folders on a USB key mounted on example \file{E:\bsh}\\
+      \codeBF{jupyter notebook E:\bsh}
+    \end{itemize}
+   
+  \end{tcolorbox}
+
+  \begin{tcolorbox}[title={\bf macOS \& GNU/Linux}: launch {\bf jupyter notebook}]
+      
+    \begin{itemize}
+    \item In a terminal with the \DarkRed{\boldtt{dumas1}} PVE {\bf activated}, type:\\
+      \codeBF{jupyter notebook}
+    \item Access a folder anywhere:\\
+      \codeBF{jupyter notebook /home/users/me/folder1/folder2}
+    \end{itemize}
+
+   \end{tcolorbox}  
+\end{frame}
+%===============================================================================
+
+\section{Launch idlex}
+
+\subsection{Windows}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+\subsection{with pip and a requirement file}
+
+%===============================================================================
+\begin{frame}{Installation des modules Python}
+  
+  \begin{tcolorbox}[title=Fichier ASCII + commande \textbf{pip}]
+    \begin{itemize}
+    \item L'option \codeBF{-r} de la commande \codeBF{pip} prend le nom d'un fichier ASCII contenant la liste des modules à installer.
+    \item Il faut impérativement désigner l'PVE concerné avec l'option
+      
+      \codeBF{-n <PVE\_name>} 
+    \end{itemize}
+  \end{tcolorbox}
+
+  \begin {bclogo}[noborder=true, couleur=gray!50, couleurBarre=Chocolate, logo=\bctrombone, marge=0, margeG=-.8]
+    {Installer l'PVE bam avec un fichier \file{requirements.txt}}\smallskip
+    Dans un terminal (fenêtre "Anaconda prompt") avec l'PVE {\bf bam activé}, taper:\\
+    \Chocolate{\boldtt{pip install -r <chemin\_du\_fichier\_requirements.txt}}\\
+  \end{bclogo}
+  
+\end{frame}
+%===============================================================================
+
+
+\subsection{by hand}
+
+%===============================================================================
+\begin{frame}{Installation of Python module}
+  
+  \begin{tcolorbox}[title={\bf for information only }: By hand...]
+      \begin{itemize}
+      \item With \codeBF{conda}:\\
+        \codeBF{conda install module1 modle2 ...}\\
+        \codeBF{conda install module1==x.y.z ...} {\small (force version)}\\[1mm]
+      \item With \codeBF{pip}:\\
+        \codeBF{pip install module1 modle2 ...}\\
+        \codeBF{pip install module1==x.y.z ...} {\small (force version)}
+      \end{itemize}
+  \end{tcolorbox}
+
+  \begin {bclogo}[noborder=true, couleur=gray!50, couleurBarre=Chocolate, logo=\bctrombone, marge=0, margeG=-.8]
+    {Install bam PVE modules manually}
+    {\small \DarkRed{$\leadsto$ FYI, not recommended: better to use "YAML file + \codeBF{conda}..."}
+       
+     In a terminal, or an "Anaconda prompt" window, with the bam PVE {\bf activated}, type successively:\\
+     \Chocolate{\boldtt{conda install numpy scipy sympy pandas matplotlib imageio opencv}}\\
+     \Chocolate{\boldtt{conda install jupyter notebook jupyterlab}}\\
+     \Chocolate{\boldtt{pip install idlex}}
+     }
+  \end{bclogo}
+  
+\end{frame}
+%===============================================================================
+
+%===============================================================================
+\begin{frame}
+
+\begin{tcolorbox}[title=\textbf{Windows}: Shortcut to launch \textbf{Idlex}]
+
+    {\small
+    \file{<MC>} designating the path to the folder \file{miniconda3} on your computer:
+     \begin{itemize}
+     \item In the folder \fileBF{<MC>\bsh envs\bsh dumas1\bsh Scripts}: <<\;right-click\;>> on the file \fileBF{idlex.py} to create a <<\; desktop shortcut\;>>.
+     \item In the desktop: <<\;right-click\;>> on the \fileBF{idlex.py} shortcut to modify its <<\;properties\;>> in the <<\;Shortcut\; >> tab:\smallskip
+     \begin{itemize}
+         \item field <<\;target\;>>: put {\bf on a single line}:\\
+           \hspace*{-10mm}\code{\fontsize{6}{6}\selectfont{<MC>\bsh condabin\bsh conda.bat activate dumas1 \& <MC>\bsh envs\bsh dumas1\bsh python.exe <MC>\bsh envs\bsh dumas1\bsh Scripts\bsh idlex.py}}\\
+           \hspace*{-8mm}\DarkGreen{\footnotesize $\leadsto$ replace <MC> with the path of the folder {\em miniconda3} on your computer.}
+           \smallskip
+         \item field <<\;Start in\;>>: put the path of a folder in your user tree, or the path of your user folder.
+           \smallskip
+         \item field <<\;Icon\;>>: click on <<\;Change icon $\leadsto$ Browse\;>> and install the icon \file{<MC>\bsh Lib\bsh idlelib\ bsh Icons\bsh idle.ico}
+     \end{itemize}
+   \end{itemize}
+   }
+  \end{tcolorbox}
+ 
+   \begin{tcolorbox}[title={\bf macOS \& GNU/Linux}: launch \textbf{Idlex}]
+   In a terminal with the \DarkRed{\boldtt{dumas1}} PVE {\bf activated}, type: \codeBF{idlex}
+   \end{tcolorbox}
+   
+\end{frame}
+%===============================================================================
