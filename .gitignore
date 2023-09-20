@@ -1,6 +1,7 @@
 # by JLC
 *.zip
 models/
+SandBox/
 Notebooks/models/
 *.aux 
 *.toc 
@@ -10,7 +11,7 @@ Notebooks/models/
 *.snm 
 *~ 
 *.vrb
-_minted-Install_PVE/
+IA_ML_Slides/Slides/_minted-slides/
 # by JLC
 
 # Byte-compiled / optimized / DLL files
