@@ -2,6 +2,7 @@
 *.zip
 models/
 SandBox/
+#sandBox/
 Notebooks/models/
 *.aux 
 *.toc 
