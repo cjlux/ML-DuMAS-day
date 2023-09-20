@@ -1,4 +1,4 @@
-# ML-DuMAS-day
+# ML-DuMAS-day  (22 September 2023)
 
 Introduction to IA &amp; ML for the DuMAS department day, September 2023, 22.
 
