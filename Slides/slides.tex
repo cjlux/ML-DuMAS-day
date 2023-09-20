@@ -465,7 +465,7 @@ v1.2 -- JLC :
 
 %Physics-Informed Machine Learning Models
 
-%=================================== 15 ==========================================
+%=================================== 15 ========================================
 \begin{frame}{Neural Network Architectures}
 
 Many NN architectures for many applications (non-exhaustive list):
@@ -486,7 +486,7 @@ Many NN architectures for many applications (non-exhaustive list):
 
 \subsection{Explainability}
 
-%=================================== 16 ==========================================
+%=================================== 16 ========================================
 \begin{frame}{Societal issues: {\bf Explainabilty}}
 
   \DarkGreen{\bf Explainability} is fast becoming a top priority in research, where it is often
@@ -509,23 +509,29 @@ Many NN architectures for many applications (non-exhaustive list):
 
 \subsection{decision-making}
 
-%=================================== 17 ==========================================
-\begin{frame}{Societal issues: {\bf Decision-making ML}}
+%=================================== 17 ========================================
+\begin{frame}{Societal issues: {\bf Decision-making, Certification}}
 
-  An increasing amount of {\bf decisions} in sensible fields are being ceded to ML algorithms to the detriment of
-  human control, raising concern for loss of fairness and equitability.
   
-  \begin{tcolorbox}[title={\bf Explainability}]
+  
+  \begin{tcolorbox}[title={\bf Decision-making}]
     \begin{itemize}
-    \item  Decision-making algorithms rest inevitably on assumptions, even silent ones, such as the quality of data the algorithm is trained
-    \item 
+    \item An increasing amount of {\bf decisions} in sensible fields (criminal justice, health, insurance, defense...) are being ceded to ML algorithms to the detriment of
+  human control, raising concern for loss of fairness and equitability.
+    \item Decision-making algorithms rely inevitably on assumptions (such as the quality of data the algorithm is trained with)
     \end{itemize}
   \end{tcolorbox}   
-  
-  Machine-learning algorithms in the field of criminal justice
 
-  Certification....
-  
+  \visible<2>{
+  \begin{tcolorbox}[title={\bf Evalation, Certification}]
+    \begin{itemize}      
+    \item The evaluation and the certification of AI systems is still a major issue for their integration in the industry
+    \item Formal certification of ML algorithms is still a subject of research today
+    \item Example: \href{https://www.lne.fr/fr/service/certification/certification-processus-ia}{LNE Process certification for AI}
+    \end{itemize}
+  \end{tcolorbox}
+  }
+    
 \end{frame}
 %===============================================================================
 
@@ -538,10 +544,12 @@ Many NN architectures for many applications (non-exhaustive list):
     \includegraphics[width=\linewidth]{images/logo-ec--en.png}
   \end{minipage}\ \begin{minipage}{.65\textwidth}
   \small
-    On 8 April 2019, the High-Level Expert Group on AI presented
-  \href{https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai}
+  On 8 April 2019, the European High-Level Expert Group on AI (AI HLEG)%
+  \footnotemark presented   \href{https://digital-strategy.ec.europa.eu/en/library/ethics-guidelines-trustworthy-ai}
        {Ethics Guidelines for Trustworthy Artificial Intelligence}
+
   \end{minipage}
+  \footnotetext{Groupe d'Experts indépendants de Haut Niveau en Intelligence Artificielle (GEHN IA)}
 \bigskip      
   \begin{tcolorbox}[title={According to the Guidelines, trustworthy AI should be:}]   
     
@@ -550,18 +558,21 @@ Many NN architectures for many applications (non-exhaustive list):
     \item[\DarkBlue{Ethical}] respecting ethical principles and values
     \item[\DarkBlue{Robust}] both from a technical perspective while taking into account its social environment       
     \end{description}
-  \end{tcolorbox}   
+  \end{tcolorbox}
+  \vfill
+  Based on the feedback received, the AI HLEG  presented the final {\bf Assessment List for Trustworthy AI} (ALTAI) in July 2020.
        
 \end{frame}
 %===============================================================================
 
 %=================================== 19 ==========================================
-\begin{frame}{Societal issues: Trustworthy AI}
+\begin{frame}{Societal issues: {\bf Trustworthy AI}}
 
   \hspace*{-5mm}
   \begin{minipage}{.5\textwidth}
     {\Large\bf ALTAI}\\
-    Assessment List for Trustworthy AI
+    \href{https://digital-strategy.ec.europa.eu/en/library/assessment-list-trustworthy-artificial-intelligence-altai-self-assessment}{
+      Assessment List for Trustworthy AI}
   \begin{itemize}
   \item Does the AI system potentially negatively discriminate against people...?
   \item Does the AI system respect the rights of the child?
@@ -579,23 +590,21 @@ Many NN architectures for many applications (non-exhaustive list):
 
 
 %=================================== 18 ==========================================
-\begin{frame}{Some societal issues}
+\begin{frame}{Societal issues}
 
-  References
+  Some references
   \begin{itemize}
   \item The Alan Turing Institute\\
     \href{http://arxiv.org/abs/1906.05684}{Understanding artificial intelligence ethics and safety}
   \item Nature\\
     \href{https://www.nature.com/articles/s41599-020-0501-9}{Ethical principles in machine learning and artificial intelligence: cases from the field and possible ways forward}
+  \item Rapport Villani (2018)\\
+    \href{https://www.vie-publique.fr/rapport/37225-donner-un-sens-lintelligence-artificielle-pour-une-strategie-nation}
+         {Donner un sens à l'intelligence artificielle : pour une stratégie nationale et européenne}
   \end{itemize}
 
 \end{frame}
 %===============================================================================
-
-\section{Internet resources}
-
-https://towardsdatascience.com/
-
 
 \section{Computing aspects}
 
@@ -860,6 +869,14 @@ https://towardsdatascience.com/
 %===============================================================================
  
 \end{document}
+
+
+
+
+\section{Internet resources}
+
+https://towardsdatascience.com/
+
 
 
 %=================================== 17 ========================================
