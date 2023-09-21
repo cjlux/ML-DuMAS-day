@@ -101,6 +101,7 @@
     colback=Chocolate!25!white,colframe=Chocolate!75!black}
 
 \renewcommand\ttdefault{lmtt}
+\newcommand{\boldtt}[1]{{\ttfamily\bfseries #1}}
 
 \begin{comment}
 v1.2 -- JLC :
@@ -113,8 +114,6 @@ v1.2 -- JLC :
 \begin{document}
 
 \frame[plain]{\titlepage}
-
-\newcommand{\boldtt}[1]{{\ttfamily\bfseries #1}}
 
 \setbeamercolor{structure}{fg=gray!50!white}
 
@@ -722,7 +721,7 @@ Many NN architectures for many applications (non-exhaustive list):
 \subsection{One-hot coding}
 
 %================================= 24 ==========================================
-\begin{frame}{Computing aspects [Classification]}
+\begin{frame}{Computing aspects [Classitication]}
 
 \begin{tcolorbox}[title={\em One-hot} coding of labels]
 
@@ -752,7 +751,7 @@ Many NN architectures for many applications (non-exhaustive list):
 %===============================================================================
 
 %================================== 25 =========================================
-\begin{frame}{Computing aspects [Classification]}
+\begin{frame}{Computing aspects [Classitication]}
 
 \begin{tcolorbox}[title=Error function: {\em Cross entropy error}]
 
