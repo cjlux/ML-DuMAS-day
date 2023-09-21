@@ -1,6 +1,6 @@
-# ML-DuMAS-day
+# ML-DuMAS-day  (22 September 2023)
 
-Introduction to IA &amp; ML for the DuMAS department day, September 2023, 22.
+A gentle introduction to IA &amp; ML for the DuMAS department day, September 2023, 22.
 
 - The directory `Slides` contains the introduction slides to Artificial Intelligence (AI) and Machine Learning (ML) presented for the DuMAS department day.
 
