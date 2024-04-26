@@ -14,6 +14,8 @@ Notebooks/models/
 *~ 
 *.vrb
 IA_ML_Slides/Slides/_minted-slides/
+Slides/#slides.tex#
+Slides/.#slides.tex
 # by JLC
 
 # Byte-compiled / optimized / DLL files
